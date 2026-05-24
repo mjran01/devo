@@ -1,6 +1,5 @@
 pages:
   image: alpine:latest
-  stage: deploy
   script:
     - mkdir -p public
     - cp index.html public/
