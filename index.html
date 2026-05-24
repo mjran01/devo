@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pang-araw-araw na Debosyon</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="profile-wrap">
+      <img
+        src="assets/images/profile_picture.webp"
+        alt="Profile"
+        class="profile-pic"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <div class="profile-fallback" style="display:none;">✝</div>
+    </div>
+    <h1 class="site-title">Pang-araw-araw na Debosyon</h1>
+    <p class="site-subtitle">King James Version</p>
+    <div class="mode-switcher">
+      <button id="btn-current" class="mode-btn active">This Week</button>
+      <button id="btn-archive" class="mode-btn">Archive</button>
+    </div>
+  </header>
+
+  <!-- CURRENT WEEK VIEW -->
+  <div id="current-view">
+    <nav class="date-nav" id="date-nav" aria-label="Pumili ng araw"></nav>
+    <main>
+      <p class="week-label">Linggo ng Mayo 19 hanggang 25, 2025</p>
+      <div id="current-main"></div>
+      
+    </main>
+  </div>
+
+  <!-- ARCHIVE VIEW -->
+  <div id="archive-view" style="display:none;">
+    <main>
+      <div id="archive-contents"></div>
+    </main>
+  </div>
+  <style>
+    #archive-view main { max-width: 680px; margin: 0 auto; padding: 1rem 1.25rem 4rem; }
+  </style>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

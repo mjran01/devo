@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Nunito:wght@300;400;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #faf6ef;
+  --warm-white: #fff9f2;
+  --gold: #c9963a;
+  --gold-light: #f0d9a8;
+  --gold-pale: #fdf3dc;
+  --brown: #4a2e0a;
+  --brown-mid: #7a4f1e;
+  --brown-light: #a67c52;
+  --text: #2c1a06;
+  --text-muted: #7a6045;
+  --border: #e8d5b0;
+  --shadow: rgba(74, 46, 10, 0.08);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--brown);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 20px,
+    rgba(255,255,255,0.02) 20px,
+    rgba(255,255,255,0.02) 21px
+  );
+}
+
+.profile-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  object-fit: cover;
+  display: block;
+}
+
+.profile-fallback {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  background: var(--brown-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: var(--gold-light);
+  font-family: 'EB Garamond', serif;
+}
+
+.site-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--gold-light);
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.site-subtitle {
+  font-size: 0.75rem;
+  color: rgba(240,217,168,0.6);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ── DATE NAV ── */
+.date-nav {
+  background: var(--warm-white);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.date-nav::-webkit-scrollbar { display: none; }
+
+.date-btn {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.date-btn:hover {
+  border-color: var(--gold);
+  color: var(--brown-mid);
+  background: var(--gold-pale);
+}
+
+.date-btn.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+/* ── WEEK HEADING ── */
+.week-label {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--brown-light);
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 0.5px;
+}
+
+/* ── DAY SECTION ── */
+.day-section {
+  margin-bottom: 2.5rem;
+  display: none;
+}
+
+.day-section.visible {
+  display: block;
+  animation: fadeIn 0.35s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.day-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.day-name {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--brown);
+}
+
+.day-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ── DEVOTION CARD ── */
+.devotion {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 1.5rem 1.25rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.devotion::before {
+  content: '\201C';
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  font-family: 'EB Garamond', serif;
+  font-size: 4rem;
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+.verse-ref {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.verse-text {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  font-style: italic;
+  color: var(--brown);
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  border-left: 2px solid var(--gold-light);
+}
+
+.reflection {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ── EMPTY STATE ── */
+.empty-day {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  opacity: 0.6;
+}
+
+/* ── HOW TO EDIT BOX ── */
+.edit-guide {
+  background: var(--gold-pale);
+  border: 1px dashed var(--gold);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin-top: 3rem;
+  font-size: 0.82rem;
+  color: var(--brown-mid);
+  line-height: 1.8;
+}
+
+.edit-guide strong {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.edit-guide code {
+  background: rgba(201,150,58,0.15);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-family: monospace;
+  color: var(--brown);
+}
+
+/* ── MODE SWITCHER ── */
+.mode-switcher {
+  display: inline-flex;
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 3px;
+  gap: 2px;
+  margin-top: 1rem;
+  position:relative;
+  z-index: 10;
+}
+
+.mode-btn {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 0.35rem 1.1rem;
+  border-radius: 16px;
+  border: none;
+  background: transparent;
+  color: rgba(240,217,168,0.65);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mode-btn.active {
+  background: var(--gold);
+  color: #fff;
+}
+
+/* ── ARCHIVE ── */
+.archive-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.archive-tabs {
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+#archive-view main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 4rem;
+}
