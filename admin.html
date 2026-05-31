@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Pang-araw-araw na Debosyon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #faf6ef;
+      --warm-white: #fff9f2;
+      --gold: #c9963a;
+      --gold-light: #f0d9a8;
+      --gold-pale: #fdf3dc;
+      --brown: #4a2e0a;
+      --brown-mid: #7a4f1e;
+      --brown-light: #a67c52;
+      --text: #2c1a06;
+      --text-muted: #7a6045;
+      --border: #e8d5b0;
+      --danger: #c0392b;
+      --danger-pale: #fdf0ef;
+      --success: #2e7d32;
+      --success-pale: #f0fdf0;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── LOGIN ── */
+    #login-screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--brown);
+      background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.02) 20px, rgba(255,255,255,0.02) 21px);
+    }
+
+    .login-card {
+      background: var(--warm-white);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 360px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .login-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .login-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--brown);
+      margin-bottom: 0.25rem;
+    }
+
+    .login-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .login-card input[type="password"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      background: var(--cream);
+      color: var(--text);
+      margin-bottom: 1rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .login-card input[type="password"]:focus {
+      border-color: var(--gold);
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-primary:hover { background: var(--brown-mid); }
+    .btn-primary:active { transform: scale(0.98); }
+
+    .login-error {
+      color: var(--danger);
+      font-size: 0.8rem;
+      margin-top: 0.75rem;
+      display: none;
+    }
+
+    /* ── ADMIN PANEL ── */
+    #admin-panel { display: none; }
+
+    .admin-header {
+      background: var(--brown);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .admin-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .admin-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--gold-light);
+    }
+
+    .admin-badge {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+
+    .btn-logout {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      border: 1.5px solid rgba(240,217,168,0.3);
+      background: transparent;
+      color: rgba(240,217,168,0.7);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-logout:hover {
+      background: rgba(255,255,255,0.1);
+      color: var(--gold-light);
+    }
+
+    .admin-body {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 5rem;
+    }
+
+    /* ── TABS ── */
+    .admin-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0;
+    }
+
+    .admin-tab {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.6rem 1.25rem;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .admin-tab:hover { color: var(--brown-mid); }
+
+    .admin-tab.active {
+      color: var(--brown);
+      border-bottom-color: var(--gold);
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; animation: fadeIn 0.25s ease; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.35rem;
+      color: var(--brown);
+      margin-bottom: 0.35rem;
+    }
+
+    .section-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      line-height: 1.6;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-title {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    /* ── FORM ELEMENTS ── */
+    label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--brown-mid);
+      margin-bottom: 0.35rem;
+      letter-spacing: 0.3px;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.65rem 0.9rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      background: var(--cream);
+      color: var(--text);
+      transition: border-color 0.2s;
+      outline: none;
+      margin-bottom: 1rem;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--gold);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+      line-height: 1.6;
+    }
+
+    textarea.tall { min-height: 130px; }
+
+    /* ── WEEK CONFIG GRID ── */
+    .week-config-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .week-config-grid input { margin-bottom: 0; }
+
+    /* ── DAY CARDS ── */
+    .day-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .day-card {
+      background: var(--cream);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .day-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: var(--gold-pale);
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .day-card-title {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--brown);
+    }
+
+    .day-card-date {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .day-card-toggle {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      transition: transform 0.2s;
+    }
+
+    .day-card-toggle.open { transform: rotate(180deg); }
+
+    .day-card-body {
+      padding: 1rem;
+      display: none;
+    }
+
+    .day-card-body.open { display: block; }
+
+    .day-card-body input,
+    .day-card-body textarea {
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── ARCHIVE PANEL ── */
+    .archive-item {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .archive-item-label {
+      font-weight: 700;
+      color: var(--brown);
+      font-size: 0.9rem;
+    }
+
+    .archive-item-count {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .btn-danger {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.35rem 0.9rem;
+      border-radius: 8px;
+      border: 1.5px solid var(--danger);
+      background: transparent;
+      color: var(--danger);
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-danger:hover {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.55rem 1.25rem;
+      border-radius: 8px;
+      border: 1.5px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: var(--gold-pale);
+    }
+
+    /* ── ACTION BUTTONS ── */
+    .action-bar {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .btn-action {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.65rem 1.5rem;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      transition: all 0.2s;
+    }
+
+    .btn-action.green {
+      background: var(--success);
+      color: #fff;
+    }
+
+    .btn-action.green:hover { background: #1b5e20; }
+
+    .btn-action.gold {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    .btn-action.gold:hover { background: var(--brown-mid); }
+
+    /* ── TOAST ── */
+    #toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--brown);
+      color: var(--gold-light);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+      z-index: 9999;
+      white-space: nowrap;
+    }
+
+    #toast.show { transform: translateX(-50%) translateY(0); }
+    #toast.error { background: var(--danger); color: #fff; }
+
+    /* ── ARCHIVE ACTION CARD ── */
+    .archive-action-card {
+      background: linear-gradient(135deg, var(--gold-pale), var(--warm-white));
+      border: 2px dashed var(--gold);
+      border-radius: 12px;
+      padding: 1.75rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .archive-action-card h3 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+    }
+
+    .archive-action-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      line-height: 1.7;
+    }
+
+    /* ── PREVIEW ── */
+    .preview-verse {
+      background: var(--warm-white);
+      border-left: 3px solid var(--gold-light);
+      padding: 0.75rem 1rem;
+      margin-top: -0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 0 8px 8px 0;
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--brown);
+      line-height: 1.7;
+      display: none;
+    }
+
+    /* ── JSON OUTPUT ── */
+    .json-output-area {
+      width: 100%;
+      min-height: 300px;
+      padding: 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 0.78rem;
+      background: #1a1208;
+      color: #f0d9a8;
+      resize: vertical;
+      outline: none;
+      line-height: 1.6;
+    }
+
+    .info-box {
+      background: var(--gold-pale);
+      border: 1px solid var(--gold-light);
+      border-radius: 8px;
+      padding: 0.9rem 1.1rem;
+      font-size: 0.8rem;
+      color: var(--brown-mid);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .info-box strong { color: var(--brown); }
+
+    @media (max-width: 500px) {
+      .week-config-grid { grid-template-columns: 1fr; }
+      .action-bar { flex-direction: column; align-items: stretch; }
+      .btn-action { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── LOGIN ── -->
+<div id="login-screen">
+  <div class="login-card">
+    <div class="login-icon">✝</div>
+    <h1 class="login-title">Admin Panel</h1>
+    <p class="login-sub">Pang-araw-araw na Debosyon</p>
+    <input type="password" id="pw-input" placeholder="Ilagay ang password" autocomplete="current-password" />
+    <button class="btn-primary" onclick="doLogin()">Pumasok</button>
+    <p class="login-error" id="login-error">Maling password. Subukan ulit.</p>
+  </div>
+</div>
+
+<!-- ── ADMIN PANEL ── -->
+<div id="admin-panel">
+
+  <header class="admin-header">
+    <div class="admin-header-left">
+      <span class="admin-logo">Pang-araw-araw na Debosyon</span>
+      <span class="admin-badge">Admin</span>
+    </div>
+    <button class="btn-logout" onclick="doLogout()">Lumabas</button>
+  </header>
+
+  <div class="admin-body">
+
+    <!-- TABS -->
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="switchTab('tab-week', this)">✏️ Baguhin ang Linggo</button>
+      <button class="admin-tab" onclick="switchTab('tab-archive', this)">📦 I-archive</button>
+      <button class="admin-tab" onclick="switchTab('tab-export', this)">💾 I-export ang JSON</button>
+    </div>
+
+    <!-- ── TAB: EDIT WEEK ── -->
+    <div id="tab-week" class="tab-panel active">
+      <p class="section-title">Baguhin ang Kasalukuyang Linggo</p>
+      <p class="section-desc">Baguhin ang label ng linggo at ang debosyon para sa bawat araw. Pagkatapos, i-export ang JSON at i-upload sa iyong repository.</p>
+
+      <!-- Week label -->
+      <div class="card">
+        <p class="card-title">Impormasyon ng Linggo</p>
+        <div class="week-config-grid">
+          <div>
+            <label>Label ng Linggo (hal. May 19–25)</label>
+            <input type="text" id="week-label" placeholder="May 19–25" />
+          </div>
+          <div>
+            <label>Taon</label>
+            <input type="text" id="week-year" placeholder="2025" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Day cards -->
+      <div class="card">
+        <p class="card-title">Debosyon sa Bawat Araw</p>
+        <div class="day-cards" id="day-cards"></div>
+      </div>
+
+      <div class="action-bar">
+        <button class="btn-action gold" onclick="previewJSON()">👁 Preview JSON</button>
+        <button class="btn-action green" onclick="goToExport()">💾 I-export ang JSON</button>
+      </div>
+    </div>
+
+    <!-- ── TAB: ARCHIVE ── -->
+    <div id="tab-archive" class="tab-panel">
+      <p class="section-title">I-archive ang Kasalukuyang Linggo</p>
+      <p class="section-desc">Ilipat ang kasalukuyang linggo sa archive at simulan ang isang bagong linggo. Ang kasalukuyang mga debosyon ay mase-save sa archive.</p>
+
+      <div class="archive-action-card">
+        <h3>📦 I-archive ang Kasalukuyang Linggo</h3>
+        <p>Ang linggo na "<strong id="archive-week-name">—</strong>" ay ilililpat sa archive.<br>
+        Maaari kang mag-set ng bagong week dates para sa susunod na linggo.</p>
+        <button class="btn-action gold" onclick="archiveCurrentWeek()">I-archive Ngayon</button>
+      </div>
+
+      <!-- New week setup (appears after archiving) -->
+      <div id="new-week-setup" class="card" style="display:none;">
+        <p class="card-title">Bagong Linggo</p>
+        <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:1rem;">Itakda ang mga petsa para sa susunod na linggo. Ang mga debosyon ay magiging blangko — i-fill in sa "Baguhin ang Linggo" tab.</p>
+        <div class="week-config-grid">
+          <div>
+            <label>Label ng Bagong Linggo</label>
+            <input type="text" id="new-week-label" placeholder="May 26 – Jun 1" />
+          </div>
+          <div>
+            <label>Simula (Monday date, hal. May 26)</label>
+            <input type="text" id="new-week-start" placeholder="May 26" />
+          </div>
+        </div>
+        <button class="btn-action green" onclick="applyNewWeek()">Itakda ang Bagong Linggo</button>
+      </div>
+
+      <!-- Existing archive list -->
+      <div class="card">
+        <p class="card-title">Kasalukuyang Archive</p>
+        <div id="archive-list"></div>
+      </div>
+    </div>
+
+    <!-- ── TAB: EXPORT ── -->
+    <div id="tab-export" class="tab-panel">
+      <p class="section-title">I-export ang JSON</p>
+      <p class="section-desc">Kopyahin o i-download ang updated na JSON file. I-replace ang <code style="background:var(--gold-pale);padding:1px 6px;border-radius:4px;font-family:monospace;font-size:0.78rem;color:var(--brown)">data/devotions.json</code> sa iyong GitHub repository.</p>
+
+      <div class="info-box">
+        <strong>Paano gamitin:</strong><br>
+        1. I-click ang "I-generate ang JSON" — makikita mo ang buong data.<br>
+        2. I-click ang "I-download" para ma-save bilang file.<br>
+        3. I-upload/replace ang <code>data/devotions.json</code> sa iyong GitHub repo.<br>
+        4. Ang mga pagbabago ay makikita agad sa site.
+      </div>
+
+      <div class="action-bar" style="margin-top:0; margin-bottom:1rem;">
+        <button class="btn-action gold" onclick="generateExportJSON()">⚡ I-generate ang JSON</button>
+        <button class="btn-action green" onclick="downloadJSON()">⬇️ I-download</button>
+        <button class="btn-secondary" onclick="copyJSON()">📋 Kopyahin</button>
+      </div>
+
+      <textarea class="json-output-area" id="json-output" readonly placeholder="I-click ang 'I-generate ang JSON' para makita ang output..."></textarea>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ── CONSTANTS ──
+const PASSWORD = 'Asdlkjqwe123';
+const DAYS = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+
+// ── STATE ──
+let db = null;
+
+// ── LOGIN ──
+function doLogin() {
+  const pw = document.getElementById('pw-input').value;
+  if (pw === PASSWORD) {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('admin-panel').style.display = 'block';
+    initAdmin();
+  } else {
+    document.getElementById('login-error').style.display = 'block';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
+  }
+}
+
+document.getElementById('pw-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doLogin();
+});
+
+function doLogout() {
+  document.getElementById('admin-panel').style.display = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('pw-input').value = '';
+}
+
+// ── INIT ──
+async function initAdmin() {
+  try {
+    const res = await fetch('data/devotions.json?v=' + Date.now());
+    db = await res.json();
+  } catch(e) {
+    showToast('Hindi ma-load ang JSON. Siguraduhing nandoon ang data/devotions.json.', true);
+    // Init with empty structure
+    db = {
+      currentWeek: {
+        label: 'May 19–25',
+        week: DAYS.map((d, i) => ({ day: d, date: 'May ' + (19 + i) })),
+        devotions: DAYS.map(() => [])
+      },
+      archive: []
+    };
+  }
+  renderWeekForm();
+  renderArchiveList();
+  document.getElementById('archive-week-name').textContent = db.currentWeek.label;
+}
+
+// ── TABS ──
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.admin-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── WEEK FORM ──
+function renderWeekForm() {
+  document.getElementById('week-label').value = db.currentWeek.label || '';
+  document.getElementById('week-year').value = '2025';
+
+  const container = document.getElementById('day-cards');
+  container.innerHTML = '';
+
+  DAYS.forEach((dayName, i) => {
+    const dayData = db.currentWeek.week[i] || { day: dayName, date: '' };
+    const devotionList = db.currentWeek.devotions[i] || [];
+    const d = devotionList[0] || { ref: '', verse: '', reflection: '' };
+
+    const card = document.createElement('div');
+    card.className = 'day-card';
+    card.innerHTML = `
+      <div class="day-card-header" onclick="toggleDayCard(this)">
+        <div>
+          <span class="day-card-title">${dayName}</span>
+          <span class="day-card-date" id="date-display-${i}"> — ${dayData.date || ''}</span>
+        </div>
+        <span class="day-card-toggle">▼</span>
+      </div>
+      <div class="day-card-body" id="day-body-${i}">
+        <label>Petsa (hal. May 19)</label>
+        <input type="text" id="date-${i}" value="${escHtml(dayData.date || '')}" 
+               placeholder="${dayName.slice(0,3)} date"
+               oninput="document.getElementById('date-display-${i}').textContent=' — ' + this.value" />
+
+        <label>Talata (hal. John 3:16)</label>
+        <input type="text" id="ref-${i}" value="${escHtml(d.ref || '')}" placeholder="Book chapter:verse" />
+
+        <label>Teksto ng Talata (KJV)</label>
+        <textarea id="verse-${i}" class="tall" placeholder="Ilagay ang buong talata dito...">${escHtml(d.verse || '')}</textarea>
+
+        <label>Reflection / Pagninilay (Filipino)</label>
+        <textarea id="reflection-${i}" class="tall" placeholder="Ilagay ang pagninilay sa Filipino...">${escHtml(d.reflection || '')}</textarea>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function toggleDayCard(header) {
+  const body = header.nextElementSibling;
+  const toggle = header.querySelector('.day-card-toggle');
+  const isOpen = body.classList.toggle('open');
+  toggle.classList.toggle('open', isOpen);
+}
+
+// ── READ FORM INTO DB ──
+function readFormIntoDb() {
+  db.currentWeek.label = document.getElementById('week-label').value.trim();
+
+  DAYS.forEach((_, i) => {
+    const date  = document.getElementById(`date-${i}`)?.value.trim() || '';
+    const ref   = document.getElementById(`ref-${i}`)?.value.trim() || '';
+    const verse = document.getElementById(`verse-${i}`)?.value.trim() || '';
+    const refl  = document.getElementById(`reflection-${i}`)?.value.trim() || '';
+
+    db.currentWeek.week[i] = { day: DAYS[i], date };
+
+    if (ref || verse || refl) {
+      db.currentWeek.devotions[i] = [{ ref, verse, reflection: refl }];
+    } else {
+      db.currentWeek.devotions[i] = [];
+    }
+  });
+}
+
+// ── ARCHIVE ──
+function renderArchiveList() {
+  const list = document.getElementById('archive-list');
+  list.innerHTML = '';
+
+  if (!db.archive || db.archive.length === 0) {
+    list.innerHTML = '<p style="font-size:0.85rem;color:var(--text-muted);font-style:italic;text-align:center;padding:1.5rem 0;">Walang naka-archive na linggo pa.</p>';
+    return;
+  }
+
+  db.archive.forEach((a, i) => {
+    const count = (a.devotions || []).flat().filter(x => x && x.ref).length;
+    const item = document.createElement('div');
+    item.className = 'archive-item';
+    item.innerHTML = `
+      <div>
+        <div class="archive-item-label">📅 ${a.label}</div>
+        <div class="archive-item-count">${count} devotion${count !== 1 ? 's' : ''}</div>
+      </div>
+      <button class="btn-danger" onclick="deleteArchive(${i})">🗑 Burahin</button>
+    `;
+    list.appendChild(item);
+  });
+}
+
+function archiveCurrentWeek() {
+  readFormIntoDb();
+
+  // Move current week to archive (prepend so newest is first)
+  const toArchive = JSON.parse(JSON.stringify(db.currentWeek));
+  if (!db.archive) db.archive = [];
+  db.archive.unshift({ label: toArchive.label, week: toArchive.week, devotions: toArchive.devotions });
+
+  // Reset current week devotions to blank
+  db.currentWeek.devotions = DAYS.map(() => []);
+
+  renderWeekForm();
+  renderArchiveList();
+  document.getElementById('archive-week-name').textContent = db.currentWeek.label;
+  document.getElementById('new-week-setup').style.display = 'block';
+  showToast('Na-archive na ang linggo! Itakda ang bagong petsa.');
+}
+
+function applyNewWeek() {
+  const label = document.getElementById('new-week-label').value.trim();
+  const start = document.getElementById('new-week-start').value.trim();
+
+  if (!label || !start) { showToast('Punan ang label at simula ng linggo.', true); return; }
+
+  // Parse start date (e.g. "May 26") and generate 7 dates
+  db.currentWeek.label = label;
+  document.getElementById('week-label').value = label;
+  document.getElementById('archive-week-name').textContent = label;
+
+  // Try to compute the 7 days
+  const months = { Jan:0, Feb:1, Mar:2, Apr:3, May:4, Jun:5, Jul:6, Aug:7, Sep:8, Oct:9, Nov:10, Dec:11 };
+  const parts = start.split(' ');
+  if (parts.length === 2) {
+    const mon = months[parts[0]];
+    const day = parseInt(parts[1]);
+    if (mon !== undefined && !isNaN(day)) {
+      const date = new Date(2025, mon, day);
+      DAYS.forEach((_, i) => {
+        const d = new Date(date);
+        d.setDate(d.getDate() + i);
+        const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        db.currentWeek.week[i] = { day: DAYS[i], date: `${monthNames[d.getMonth()]} ${d.getDate()}` };
+      });
+    }
+  }
+
+  renderWeekForm();
+  document.getElementById('new-week-setup').style.display = 'none';
+  showToast('Bagong linggo na itinakda! Punan ang mga debosyon.');
+}
+
+function deleteArchive(i) {
+  if (!confirm(`Burahin ang archive na "${db.archive[i].label}"?`)) return;
+  db.archive.splice(i, 1);
+  renderArchiveList();
+  showToast('Na-delete ang archive entry.');
+}
+
+// ── EXPORT ──
+function previewJSON() {
+  readFormIntoDb();
+  switchTab('tab-export', document.querySelectorAll('.admin-tab')[2]);
+  generateExportJSON();
+}
+
+function goToExport() {
+  readFormIntoDb();
+  switchTab('tab-export', document.querySelectorAll('.admin-tab')[2]);
+  generateExportJSON();
+}
+
+function generateExportJSON() {
+  readFormIntoDb();
+  const json = JSON.stringify(db, null, 2);
+  document.getElementById('json-output').value = json;
+  showToast('JSON na-generate!');
+}
+
+function downloadJSON() {
+  readFormIntoDb();
+  const json = JSON.stringify(db, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'devotions.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('Na-download ang devotions.json!');
+}
+
+function copyJSON() {
+  const ta = document.getElementById('json-output');
+  if (!ta.value) { generateExportJSON(); }
+  navigator.clipboard.writeText(ta.value).then(() => showToast('Nakopya sa clipboard!'));
+}
+
+// ── TOAST ──
+function showToast(msg, isError = false) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = isError ? 'error' : '';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ── UTILS ──
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>
