@@ -1,70 +1,49 @@
 {
   "currentWeek": {
-    "label": "May 25 - May 31",
+    "label": "June 1 – June 7",
     "week": [
-      {
-        "day": "Monday",
-        "date": "May 25"
-      },
-      {
-        "day": "Tuesday",
-        "date": "May 26"
-      },
-      {
-        "day": "Wednesday",
-        "date": "May 27"
-      },
-      {
-        "day": "Thursday",
-        "date": "May 28"
-      },
-      {
-        "day": "Friday",
-        "date": "May 29"
-      },
-      {
-        "day": "Saturday",
-        "date": "May 30"
-      },
-      {
-        "day": "Sunday",
-        "date": "May 31"
-      }
+      { "day": "Monday", "date": "June 1" },
+      { "day": "Tuesday", "date": "June 2" },
+      { "day": "Wednesday", "date": "June 3" },
+      { "day": "Thursday", "date": "June 4" },
+      { "day": "Friday", "date": "June 5" },
+      { "day": "Saturday", "date": "June 6" },
+      { "day": "Sunday", "date": "June 7" }
     ],
     "devotions": [
       [
         {
-          "ref": "Mga Hukom 13:5",
-          "verse": "\"Sapagka't, narito, ikaw ay maglilihi, at manganganak ng isang lalake; at walang labaha na darating sa kaniyang ulo: sapagka't ang bata ay magiging isang Nazareo sa Dios mula sa tiyan: at siya ang magsisimulang magligtas sa Israel sa kamay ng mga Filisteo.\"",
-          "reflection": "Bago pa ipanganak si Samson, mayroon nang tiyak na layunin ang Diyos para sa kanya. Ikaw rin ay hindi nagkataon lamang pinili ka ng Diyos, hinubog ka Niya, at mayroon Siyang plano para sa iyo mula pa sa sinapupunan ng iyong ina. Huwag hayaang sabihin ng mundo na wala kang halaga. Ang Diyos na lumikha sa iyo ay may dahilan kung bakit ka nandito."
+          "ref": "Philippians 4:6–7",
+          "verse": "\"Be anxious for nothing, but in everything by prayer and supplication, with thanksgiving, let your requests be made known to God; and the peace of God, which surpasses all understanding, will guard your hearts and minds through Christ Jesus.\"",
+          "reflection": "Madalas nating sabihin na 'depressed' tayo, ngunit ang tanong ay: nag-pray ba tayo o nag-reklamo lamang? Ang Diyos ay hindi nagbilin ng pagkabalisa — nagbilin Siya ng pananalangin. Ang kalungkutan na pinananatili natin ay madalas na resulta ng ating pagtuon sa sarili kaysa sa Panginoon. Huwag hanapin ang kapayapaan sa labas — ibigay mo sa Diyos ang iyong mga alalahanin, at ang kapayapaang hindi maipaliwanag ng mundo ay magbabantay sa iyong puso."
         }
       ],
       [
         {
-          "ref": "Mga Hukom 14:6",
-          "verse": "\"At ang Espiritu ng Panginoon ay kumulo sa kaniya, at kaniyang pinunit siya na parang pagpunit sa isang batang kambing, at wala siyang anoman sa kaniyang kamay.\"",
-          "reflection": "Ang lakas ni Samson ay hindi galing sa kanyang sarili dumating ito nang pumalit ang Espiritu ng Panginoon sa kanya. Kapag tayo ay nahaharap sa mga hamon na tila lampas sa ating kakayahan, huwag umasa sa sariling lakas. Ang Espiritu ng Diyos ang pinakadakilang lakas na maaari nating taglayin humingi tayo sa Kanya araw-araw."
+          "ref": "Philippians 4:8",
+          "verse": "\"Finally, brethren, whatever things are true, whatever things are noble, whatever things are just, whatever things are pure, whatever things are lovely, whatever things are of good report, if there is any virtue and if there is anything praiseworthy — meditate on these things.\"",
+          "reflection": "Ang isip natin ay patungo sa tinutukan natin. Kung puro negatibo, reklamo, at sariling dalamhati ang pinagtutuunan natin, hindi dapat magulat na mabigat ang pakiramdam natin araw-araw. Ang Diyos ay nagbibigay ng pagpipilian — ituon ang isip sa kung ano ang totoo, marangal, at kapuri-puri. Ang 'depression' na sinasabi ng marami ay madalas isang isipang hindi pa naisusuko sa Panginoon. Simulan mo ngayon — piliin ang iyong mga iniisip."
         }
       ],
       [
         {
-          "ref": "Mga Hukom 15:18",
-          "verse": "\"At siya'y lubhang nauhaw, at tumawag sa Panginoon, at nagsabi, Ikaw ang nagbigay ng dakilang kaligtasang ito sa pamamagitan ng kamay ng iyong lingkod: at ngayon ay mamamatay ako sa uhaw, at mahuhulog sa kamay ng mga hindi tuli?\"",
-          "reflection": "Pagkatapos ng malaking tagumpay, naramdaman ni Samson ang sukdulang pagod at uhaw. Ganyan din tayo matapos ang mga malalaking sandali ng tagumpay, madalas tayong mahulog sa kahinaan. Huwag mahiyang lumapit sa Panginoon kahit pagkatapos ng tagumpay. Ang Diyos na nagbigay ng kalayaan ay nagbibigay din ng lakas sa mga pagod at nanghihina."
+          "ref": "Kawikaan 4:23",
+          "verse": "\"Ingatan mo nang higit sa lahat ang iyong puso, sapagka't mula rito ay dumaloy ang mga bukal ng buhay.\"",
+          "reflection": "Ang puso ay pinagmumulan ng lahat ng ating mga kilos at desisyon. Kung ano ang pinapasok natin sa ating isip at puso — musika, mga salita, mga imahe — iyon ang magiging bunga ng ating buhay. Huwag ipagpaliban ang pagbabantay sa iyong sarili. Ang disiplina sa iyong puso ay isang responsibilidad, hindi isang opsyon — ito ang pundasyon ng malusog na espirituwal na buhay."
         }
       ],
       [
         {
-          "ref": "Mga Hukom 16:1",
-          "verse": "\"Nang magkagayo'y naparoon si Samson sa Gaza, at nakita roon ang isang patutot, at pumunta sa kaniya.\"",
-          "reflection": "Ang pinakamalakas na tao sa Bibliya ay nadapa sa tukso ng laman. Pinapatunayan nito na ang lakas pisikal man o espirituwal ay hindi sapat na proteksyon laban sa kasalanan kung wala ang patuloy na pagbabantay o pagsusumikap sa kabanalan. Huwag mong harapin ang tukso nang mag-isa at nang buong kumpiyansa, ang karunungan ay ang tumakas bago pa man lumago ang pagnanasa."
+          "ref": "Roma 12:2",
+          "verse": "\"At huwag kayong magsiayon sa sanglibutang ito: kundi kayo ay magbabago sa pamamagitan ng pagbabago ng inyong pagiisip, upang mapatunayan ninyo kung alin ang mabuti, at katanggap-tanggap, at sakdal na kalooban ng Diyos.\"",
+          "reflection": "Ang pagbabago ay hindi nangyayari sa pamamagitan ng damdamin lamang — nangyayari ito sa pamamagitan ng pagbabago ng pag-iisip. Ang mundo ay patuloy na nagtutulak sa atin na sumunod sa kaugalian nito, ngunit ang Diyos ay tumatawag sa atin na maging naiiba. Ang responsibilidad na baguhin ang ating isipan ay nasa atin — hindi ito mangyayari kung wala tayong pakikilahok. Pumunta sa Salita, mag-alay ng isip sa Diyos, at hayaan Siyang baguhin ka mula sa loob."
         }
       ],
       [
         {
-          "ref": "Mga Hukom 16:17",
-          "verse": "\"Na sinabi niya sa kaniya ang lahat ng laman ng kaniyang puso, at sinabi sa kaniya, Walang labaha na dumating sa aking ulo: sapagka't ako'y isang Nazareo sa Dios mula sa tiyan ng aking ina: kung ako'y ahitin, ay lalayo sa akin ang aking kalakasan, at magiging mahina ako, at magiging katulad ng lahat ng tao.\"",
-          "reflection": "Ibinukas ni Samson ang kanyang buong puso sa taong nagplanong patayin siya. Mag-ingat kung kanino mo ibinubuhos ang iyong mga sikreto at kahinaan hindi lahat ng nagpapakita ng pagmamahal ay tunay na nagmamahal sa iyo. Ang karunungan sa pagpili ng iyong mga pinagkakatiwalaan ay regalo ng Diyos na dapat nating hingin."
+          "ref": "1 Pedro 5:7–8",
+          "verse": "\"Na ilagay ninyo sa kaniya ang lahat ng inyong pagkabalisa; sapagka't ipinagmamalasakit niya kayo. Kayo'y maging mapagpigil, at maging mapagbantay; ang inyong kalaban na diablo, na gaya ng leong umaangal, ay gumagala na humahanap ng masisila niya.\"",
+          "reflection": "Ibinibigay sa atin ng Diyos ang pahintulot na ilagay sa Kanya ang lahat ng ating mga alalahanin — ngunit kasabay nito ay isang babala: maging mapagbantay. Ang kalungkutan at pagkabalisa na pinananatili natin ay maaaring maging pintuan para sa kaaway. Hindi sapat na maramdaman na malungkot tayo — kailangan nating kumilos: manalangin, manatiling alerto, at tanggihan ang kasinungalingang sinasabi ng kaaway sa ating isipan. Ang pananampalataya ay aktibo, hindi pasibo."
         }
       ],
       [],
@@ -73,36 +52,66 @@
   },
   "archive": [
     {
+      "label": "May 25–31",
+      "week": [
+        { "day": "Monday", "date": "May 25" },
+        { "day": "Tuesday", "date": "May 26" },
+        { "day": "Wednesday", "date": "May 27" },
+        { "day": "Thursday", "date": "May 28" },
+        { "day": "Friday", "date": "May 29" },
+        { "day": "Saturday", "date": "May 30" },
+        { "day": "Sunday", "date": "May 31" }
+      ],
+      "devotions": [
+        [
+          {
+            "ref": "Mga Hukom 13:5",
+            "verse": "\"Sapagka't, narito, ikaw ay maglilihi, at manganganak ng isang lalake; at walang labaha na darating sa kaniyang ulo: sapagka't ang bata ay magiging isang Nazareo sa Dios mula sa tiyan: at siya ang magsisimulang magligtas sa Israel sa kamay ng mga Filisteo.\"",
+            "reflection": "Bago pa ipanganak si Samson, mayroon nang tiyak na layunin ang Diyos para sa kanya. Ikaw rin ay hindi nagkataon lamang pinili ka ng Diyos, hinubog ka Niya, at mayroon Siyang plano para sa iyo mula pa sa sinapupunan ng iyong ina. Huwag hayaang sabihin ng mundo na wala kang halaga. Ang Diyos na lumikha sa iyo ay may dahilan kung bakit ka nandito."
+          }
+        ],
+        [
+          {
+            "ref": "Mga Hukom 14:6",
+            "verse": "\"At ang Espiritu ng Panginoon ay kumulo sa kaniya, at kaniyang pinunit siya na parang pagpunit sa isang batang kambing, at wala siyang anoman sa kaniyang kamay.\"",
+            "reflection": "Ang lakas ni Samson ay hindi galing sa kanyang sarili dumating ito nang pumalit ang Espiritu ng Panginoon sa kanya. Kapag tayo ay nahaharap sa mga hamon na tila lampas sa ating kakayahan, huwag umasa sa sariling lakas. Ang Espiritu ng Diyos ang pinakadakilang lakas na maaari nating taglayin humingi tayo sa Kanya araw-araw."
+          }
+        ],
+        [
+          {
+            "ref": "Mga Hukom 15:18",
+            "verse": "\"At siya'y lubhang nauhaw, at tumawag sa Panginoon, at nagsabi, Ikaw ang nagbigay ng dakilang kaligtasang ito sa pamamagitan ng kamay ng iyong lingkod: at ngayon ay mamamatay ako sa uhaw, at mahuhulog sa kamay ng mga hindi tuli?\"",
+            "reflection": "Pagkatapos ng malaking tagumpay, naramdaman ni Samson ang sukdulang pagod at uhaw. Ganyan din tayo matapos ang mga malalaking sandali ng tagumpay, madalas tayong mahulog sa kahinaan. Huwag mahiyang lumapit sa Panginoon kahit pagkatapos ng tagumpay. Ang Diyos na nagbigay ng kalayaan ay nagbibigay din ng lakas sa mga pagod at nanghihina."
+          }
+        ],
+        [
+          {
+            "ref": "Mga Hukom 16:1",
+            "verse": "\"Nang magkagayo'y naparoon si Samson sa Gaza, at nakita roon ang isang patutot, at pumunta sa kaniya.\"",
+            "reflection": "Ang pinakamalakas na tao sa Bibliya ay nadapa sa tukso ng laman. Pinapatunayan nito na ang lakas pisikal man o espirituwal ay hindi sapat na proteksyon laban sa kasalanan kung wala ang patuloy na pagbabantay o pagsusumikap sa kabanalan. Huwag mong harapin ang tukso nang mag-isa at nang buong kumpiyansa, ang karunungan ay ang tumakas bago pa man lumago ang pagnanasa."
+          }
+        ],
+        [
+          {
+            "ref": "Mga Hukom 16:17",
+            "verse": "\"Na sinabi niya sa kaniya ang lahat ng laman ng kaniyang puso, at sinabi sa kaniya, Walang labaha na dumating sa aking ulo: sapagka't ako'y isang Nazareo sa Dios mula sa tiyan ng aking ina: kung ako'y ahitin, ay lalayo sa akin ang aking kalakasan, at magiging mahina ako, at magiging katulad ng lahat ng tao.\"",
+            "reflection": "Ibinukas ni Samson ang kanyang buong puso sa taong nagplanong patayin siya. Mag-ingat kung kanino mo ibinubuhos ang iyong mga sikreto at kahinaan hindi lahat ng nagpapakita ng pagmamahal ay tunay na nagmamahal sa iyo. Ang karunungan sa pagpili ng iyong mga pinagkakatiwalaan ay regalo ng Diyos na dapat nating hingin."
+          }
+        ],
+        [],
+        []
+      ]
+    },
+    {
       "label": "May 18–24",
       "week": [
-        {
-          "day": "Monday",
-          "date": "May 18"
-        },
-        {
-          "day": "Tuesday",
-          "date": "May 19"
-        },
-        {
-          "day": "Wednesday",
-          "date": "May 20"
-        },
-        {
-          "day": "Thursday",
-          "date": "May 21"
-        },
-        {
-          "day": "Friday",
-          "date": "May 22"
-        },
-        {
-          "day": "Saturday",
-          "date": "May 23"
-        },
-        {
-          "day": "Sunday",
-          "date": "May 24"
-        }
+        { "day": "Monday", "date": "May 18" },
+        { "day": "Tuesday", "date": "May 19" },
+        { "day": "Wednesday", "date": "May 20" },
+        { "day": "Thursday", "date": "May 21" },
+        { "day": "Friday", "date": "May 22" },
+        { "day": "Saturday", "date": "May 23" },
+        { "day": "Sunday", "date": "May 24" }
       ],
       "devotions": [
         [
@@ -159,34 +168,13 @@
     {
       "label": "May 12–18",
       "week": [
-        {
-          "day": "Monday",
-          "date": "May 12"
-        },
-        {
-          "day": "Tuesday",
-          "date": "May 13"
-        },
-        {
-          "day": "Wednesday",
-          "date": "May 14"
-        },
-        {
-          "day": "Thursday",
-          "date": "May 15"
-        },
-        {
-          "day": "Friday",
-          "date": "May 16"
-        },
-        {
-          "day": "Saturday",
-          "date": "May 17"
-        },
-        {
-          "day": "Sunday",
-          "date": "May 18"
-        }
+        { "day": "Monday", "date": "May 12" },
+        { "day": "Tuesday", "date": "May 13" },
+        { "day": "Wednesday", "date": "May 14" },
+        { "day": "Thursday", "date": "May 15" },
+        { "day": "Friday", "date": "May 16" },
+        { "day": "Saturday", "date": "May 17" },
+        { "day": "Sunday", "date": "May 18" }
       ],
       "devotions": [
         [
